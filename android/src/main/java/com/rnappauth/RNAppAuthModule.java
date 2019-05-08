@@ -77,10 +77,6 @@ public class RNAppAuthModule extends ReactContextBaseJavaModule implements Activ
         final AppAuthConfiguration appAuthConfiguration = this.createAppAuthConfiguration(builder);
         final HashMap<String, String> additionalParametersMap = MapUtil.readableMapToHashMap(additionalParameters);
 
-        if (clientSecret != null) {
-            additionalParametersMap.put("client_secret", clientSecret);
-        }
-
         // store args in private fields for later use in onActivityResult handler
         this.promise = promise;
         this.dangerouslyAllowInsecureHttpRequests = dangerouslyAllowInsecureHttpRequests;
@@ -155,10 +151,6 @@ public class RNAppAuthModule extends ReactContextBaseJavaModule implements Activ
         final ConnectionBuilder builder = createConnectionBuilder(dangerouslyAllowInsecureHttpRequests, this.tokenRequestHeaders);
         final AppAuthConfiguration appAuthConfiguration = createAppAuthConfiguration(builder);
         final HashMap<String, String> additionalParametersMap = MapUtil.readableMapToHashMap(additionalParameters);
-
-        if (clientSecret != null) {
-            additionalParametersMap.put("client_secret", clientSecret);
-        }
 
         // store setting in private field for later use in onActivityResult handler
         this.dangerouslyAllowInsecureHttpRequests = dangerouslyAllowInsecureHttpRequests;
